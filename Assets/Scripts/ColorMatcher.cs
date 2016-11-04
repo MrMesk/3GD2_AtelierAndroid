@@ -4,7 +4,7 @@ using System.Collections;
 public class ColorMatcher : MonoBehaviour {
 
 	public Color meshColor;
-	public GameObject ball;
+	public GameObject[] objets;
 
 	WebCamTexture webcamTexture;
 
@@ -18,7 +18,9 @@ public class ColorMatcher : MonoBehaviour {
 	void Update () {
 		meshColor = moyenne (webcamTexture.GetPixels());
 
-		ball.GetComponent<Renderer> ().material.color = meshColor;
+		for (int i = 0; i < objets.Length; i++) {
+			objets[i].GetComponent<Renderer> ().material.color = meshColor;
+		}
 	}
 
 	Color moyenne (Color[] pixels) {
