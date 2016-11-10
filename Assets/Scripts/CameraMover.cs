@@ -23,7 +23,12 @@ public class CameraMover : MonoBehaviour
 			Touch doubleTapChecker = Input.GetTouch(0);
 			if (doubleTapChecker.tapCount >= 2) 
 			{
-				GoForward ();
+				RaycastHit hit;
+				if (Physics.Raycast (transform.position, Vector3.forward, out hit)) {
+					if (hit.transform.tag != "close_door") {
+						GoForward ();
+					}
+				}
 			}
 		}
 	}
