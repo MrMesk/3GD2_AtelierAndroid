@@ -22,7 +22,7 @@ public class ColorMatcher : MonoBehaviour {
 		webcamTexture = new WebCamTexture();
 		webcamTexture.Play();
 		//archColor = Color.red;  //test color
-		archColor = new Color (Random.Range(0,1.1f), Random.Range(0,1.1f), Random.Range(0,1.1f));
+		archColor = new Color (Random.Range(0,1.0f), Random.Range(0,1.0f), Random.Range(0,1.0f));
 		arch.GetComponent<Renderer> ().material.color = archColor;
 	}
 	
