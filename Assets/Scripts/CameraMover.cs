@@ -23,7 +23,12 @@ public class CameraMover : MonoBehaviour
 			Touch doubleTapChecker = Input.GetTouch(0);
 			if (doubleTapChecker.tapCount >= 2) 
 			{
-				GoForward ();
+				RaycastHit hit;
+				if (Physics.Raycast (transform.position, Vector3.forward, out hit)) {
+					if (hit.transform.tag != "close_door") {
+						GoForward ();
+					}
+				}
 			}
 		}
 	}
@@ -32,12 +37,12 @@ public class CameraMover : MonoBehaviour
 	{
 		if (targetPos != transform.position) 
 		{
-			transform.position = Vector3.MoveTowards (transform.position, targetPos, 0.5f);
+			transform.position = Vector3.MoveTowards (transform.position, targetPos, 0.1f);
 		}
 	}
 
 	void GoForward()
 	{
-		targetPos += transform.forward * moveDistanceOnTap;
+		targetPos += Vector3.forward * moveDistanceOnTap;
 	}
 }
