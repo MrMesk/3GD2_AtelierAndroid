@@ -13,14 +13,10 @@ public class ColorMatcher : MonoBehaviour {
 	public GameObject decorFolder;
 	public GameObject[] elems;
 
-	WebCamTexture webcamTexture;
-
 
 	// Use this for initialization
 	void Start () {
 		AddToObjets ();
-		webcamTexture = new WebCamTexture();
-		webcamTexture.Play();
 		//archColor = Color.red;  //test color
 		archColor = new Color (Random.Range(0,1.0f), Random.Range(0,1.0f), Random.Range(0,1.0f));
 		arch.GetComponent<Renderer> ().material.color = archColor;
@@ -28,7 +24,7 @@ public class ColorMatcher : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		meshColor = GameManager.GM.Moyenne(webcamTexture.GetPixels());
+		meshColor = GameManager.GM.Moyenne();
 
 		for (int i = 0; i < elems.Length; i++)
 		{

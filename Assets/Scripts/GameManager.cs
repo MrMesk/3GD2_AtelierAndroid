@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
 	public static GameManager GM;
 
+	WebCamTexture webcamTexture;
+
 	public void NextLevel (string sceneName)
 	{
 		SceneManager.LoadScene(sceneName);
@@ -23,8 +25,15 @@ public class GameManager : MonoBehaviour
 		DontDestroyOnLoad(this);
 	}
 
-	public Color Moyenne (Color[] pixels)
+	void Start () {
+		webcamTexture = new WebCamTexture();
+		webcamTexture.Play();
+	}
+
+	public Color Moyenne ()
 	{
+		Color[] pixels = webcamTexture.GetPixels ();
+
 		float redSum = 0;
 		float greenSum = 0;
 		float blueSum = 0;
