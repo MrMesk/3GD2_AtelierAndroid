@@ -32,12 +32,12 @@ public class CameraMover : MonoBehaviour
 	{
 		if (targetPos != transform.position) 
 		{
-			transform.position = Vector3.MoveTowards (transform.position, targetPos, 0.5f);
+			transform.position = Vector3.MoveTowards (transform.position, targetPos, 0.1f);
 		}
 	}
 
 	void GoForward()
 	{
-		targetPos += transform.forward * moveDistanceOnTap;
+		targetPos += Vector3.forward * moveDistanceOnTap;
 	}
 }
