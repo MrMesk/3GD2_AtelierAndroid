@@ -38,6 +38,6 @@ public class CameraMover : MonoBehaviour
 
 	void GoForward()
 	{
-		targetPos += Vector3.forward * moveDistanceOnTap;
+		targetPos += transform.forward * moveDistanceOnTap;
 	}
 }
