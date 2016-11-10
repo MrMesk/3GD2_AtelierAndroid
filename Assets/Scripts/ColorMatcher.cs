@@ -28,30 +28,15 @@ public class ColorMatcher : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		meshColor = moyenne (webcamTexture.GetPixels());
+		meshColor = GameManager.GM.Moyenne(webcamTexture.GetPixels());
 
-		for (int i = 0; i < elems.Length; i++) {
+		for (int i = 0; i < elems.Length; i++)
+		{
 			elems[i].GetComponent<Renderer> ().material.color = meshColor;
 		}
 
 		TestColor ();
 	}
-
-	// Test the mid color of what the camera take
-	Color moyenne (Color[] pixels) {
-		float redSum = 0;
-		float greenSum = 0;
-		float blueSum = 0;
-
-		for (int i = 0; i < pixels.Length; i++) {
-			redSum += pixels [i].r;
-			greenSum += pixels [i].g;
-			blueSum += pixels [i].b;
-		}
-
-		return new Color (redSum / pixels.Length, greenSum / pixels.Length, blueSum / pixels.Length);
-	}
-
 
 	// add all decor elements to elems 
 	void AddToObjets () {

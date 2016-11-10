@@ -23,5 +23,19 @@ public class GameManager : MonoBehaviour
 		DontDestroyOnLoad(this);
 	}
 
+	public Color Moyenne (Color[] pixels)
+	{
+		float redSum = 0;
+		float greenSum = 0;
+		float blueSum = 0;
 
+		for (int i = 0; i < pixels.Length; i++)
+		{
+			redSum += pixels[i].r;
+			greenSum += pixels[i].g;
+			blueSum += pixels[i].b;
+		}
+
+		return new Color(redSum / pixels.Length, greenSum / pixels.Length, blueSum / pixels.Length);
+	}
 }
