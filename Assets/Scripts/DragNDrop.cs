@@ -14,14 +14,16 @@ public class DragNDrop : MonoBehaviour {
 
 	public float distMarge;
 
-	public float margeRed = 0.9f;
-	public float margeGreen = 0.9f;
-	public float margeBlue = 0.9f;
+	public float margeRed = 0.8f;
+	public float margeGreen = 0.8f;
+	public float margeBlue = 0.8f;
 
 	Vector3 basePos;
 
 	void Update() {
 		Vector3 v3;
+
+		//Debug.Log (GetComponent<Renderer> ().material.color.r);
 
 		if (Input.touchCount != 1) {
 			dragging = false; 
@@ -56,8 +58,9 @@ public class DragNDrop : MonoBehaviour {
 
 			// tester color here
 			if (toDrag.name == "RefR") {
+				Debug.Log ("red");
 				if ((toDrag.GetComponent<Renderer>().material.color.r > margeRed) && ( Vector3.Distance(redBlocPos, toDrag.position) < distMarge)) {
-					// mettre booleen pour valider et supprimer
+					Destroy (toDrag.gameObject);
 				}
 				else {
 					toDrag.position = basePos;
@@ -66,8 +69,9 @@ public class DragNDrop : MonoBehaviour {
 
 
 			if (toDrag.name == "RefV") {
-				if ((toDrag.GetComponent<Renderer>().material.color.g > margeGreen) && (Vector3.Distance(redBlocPos, toDrag.position) < distMarge)) {
-					// mettre booleen pour valider et supprimer
+				Debug.Log ("green");
+				if ((toDrag.GetComponent<Renderer>().material.color.g > margeGreen) && (Vector3.Distance(greenBlocPos, toDrag.position) < distMarge)) {
+					Destroy (toDrag.gameObject);
 				}
 				else {
 					toDrag.transform.position = basePos;
@@ -76,8 +80,9 @@ public class DragNDrop : MonoBehaviour {
 
 
 			if (toDrag.name == "RefB") {
-				if ((toDrag.GetComponent<Renderer>().material.color.b > margeBlue) && (Vector3.Distance(redBlocPos, toDrag.position) < distMarge)) {
-					// mettre booleen pour valider et supprimer
+				Debug.Log ("blue");
+				if ((toDrag.GetComponent<Renderer>().material.color.b > margeBlue) && (Vector3.Distance(blueBlocPos, toDrag.position) < distMarge)) {
+					Destroy (toDrag.gameObject);
 				}
 				else {
 					toDrag.transform.position = basePos;
