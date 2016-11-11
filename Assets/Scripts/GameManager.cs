@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
 	void Awake ()
 	{
-		Application.RequestUserAuthorization(UserAuthorization.WebCam);
+		//Application.RequestUserAuthorization(UserAuthorization.WebCam); Not sure if useful
 		// We make sure there are no other game managers in the scene.
 		if (GM != null)
 		{
