@@ -34,7 +34,7 @@ public class ColorMatcher : MonoBehaviour {
 		TestColor ();
 	}
 
-	// add all decor elements to elems 
+	// add all decor elements to elems so we can apply the color to all of them at once
 	void AddToObjets () {
 		elems = new GameObject[decorFolder.transform.childCount];
 
@@ -46,7 +46,7 @@ public class ColorMatcher : MonoBehaviour {
 
 	// test if the arch color is approximatly the same as the one of the elems
 	void TestColor () {
-		if ((Mathf.Abs (meshColor.r - archColor.r) + Mathf.Abs (meshColor.g - archColor.g) + Mathf.Abs (meshColor.b - archColor.b)) < 0.1 * 3) {
+		if ((Mathf.Abs (meshColor.r - archColor.r) + Mathf.Abs (meshColor.g - archColor.g) + Mathf.Abs (meshColor.b - archColor.b)) < 0.3f) {
 			door.SetActive (false);
 		}
 		else {

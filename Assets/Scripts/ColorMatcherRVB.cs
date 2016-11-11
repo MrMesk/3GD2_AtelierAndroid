@@ -8,10 +8,6 @@ public class ColorMatcherRVB : MonoBehaviour
 	public GameObject rCube;
 	public GameObject vCube;
 	public GameObject bCube;
-	bool rMatching = false;
-	bool vMatching = false;
-	bool bMatching = false;
-
 
 	// Update is called once per frame
 	void Update ()

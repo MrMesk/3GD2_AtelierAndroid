@@ -25,7 +25,8 @@ public class DragNDrop : MonoBehaviour {
 
 		//Debug.Log (GetComponent<Renderer> ().material.color.r);
 
-		if (Input.touchCount != 1) {
+		if (Input.touchCount != 1)
+		{
 			dragging = false; 
 			return;
 		}
